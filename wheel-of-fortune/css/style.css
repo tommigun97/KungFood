@@ -1,0 +1,122 @@
+
+.container {
+  position: relative;
+  height: 350px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#wrapper {
+
+  width: 100px;
+  height: 100px;
+
+}
+
+button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+
+  &#reset {
+    left: 200px;
+  }
+}
+
+.title {
+  font-family: sans-serif;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid black;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.backdrop {
+  position: absolute;
+  background: #ffc107;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+}
+.backdrop.animate {
+  -webkit-transition: all 5s ease-in-out;
+  -moz-transition: all 5s ease-in-out;
+  -o-transition: all 5s ease-in-out;
+  transition: all 5s ease-in-out;
+}
+.backdrop .segment {
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background: black;
+  left: 50%;
+}
+
+.backdrop .segment.segment-11:after, .backdrop .segment.segment-22:after, .backdrop .segment.segment-33:after, .backdrop .segment.segment-44:after, .backdrop .segment.segment-55:after, .backdrop .segment.segment-66:after {
+  display: block;
+  margin-top: 50px;
+
+}
+
+.backdrop .segment.segment-1 {
+  transform: rotate(150deg);
+}
+
+.backdrop .segment.segment-2 {
+  transform: rotate(210deg);
+}
+
+.backdrop .segment.segment-3 {
+  transform: rotate(270deg);
+}
+
+.backdrop .segment.segment-4 {
+  transform: rotate(330deg);
+}
+
+.backdrop .segment.segment-5 {
+  transform: rotate(30deg);
+}
+
+.backdrop .segment.segment-6 {
+  transform: rotate(90deg);
+}
+
+.backdrop .segment.segment-11 {
+    background: transparent;
+  transform: rotate(105deg);
+}
+
+.backdrop .segment.segment-22 {
+    background: transparent;
+  transform: rotate(165deg);
+}
+
+.backdrop .segment.segment-33 {
+    background: transparent;
+  transform: rotate(225deg);
+}
+
+.backdrop .segment.segment-44 {
+    background:transparent;
+  transform: rotate(285deg);
+}
+
+.backdrop .segment.segment-55 {
+    background: transparent;
+  transform: rotate(345deg);
+}
+
+.backdrop .segment.segment-66 {
+    background: transparent;
+  transform: rotate(45deg);
+}
