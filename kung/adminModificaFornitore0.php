@@ -1,0 +1,47 @@
+<?php
+include 'db_connect.php';
+include 'functions.php';
+$errors = "";
+
+
+
+        if (!isset($_POST["name"]) || strlen($_POST["name"]) < 2) {
+            $errors .= "Nome deve essere almeno 2 caratteri <br/>";
+        }
+        if (!isset($_POST["psw"]) || strlen($_POST["psw"]) < 2) {
+            $errors .= "Cognome deve essere almeno 2 caratteri";
+        }
+        if (!isset($_POST["owner"]) || strlen($_POST["owner"]) < 2) {
+            $errors .= "Password deve essere valida <br/>";
+        }
+        if (!isset($_POST["p_iva"]) || strlen($_POST["p_iva"]) < 2) {
+            $errors .= "P_IVA non corretta <br/>";
+        }
+        if (strcmp($_POST["desc"], $_POST['desc']) != 0) {
+            $errors .= "Descrizione deve essere valida <br/>";
+        }
+
+        if (strlen($errors) == 0) {
+
+            if ($stmt = $mysqli->prepare("UPDATE `fornitore` SET `Nome`=?,`Password`=?,`Propietario`=?,`P_IVA`=?,`Descrizione`=?, 'Logo'=? WHERE Username = ?")) {
+                $stmt->bind_param('sssssss', $_POST['name'], $_POST['psw'], $_POST['owner'], $_POST['p_iva'], $_POST['desc'], basename($_FILES["fileToUpload"]["name"]), $_POST['username']); // esegue il bind del parametro '$email'.
+                $stmt->execute(); // esegue la query appena creata.
+                //$password = hash('sha512', $password); // codifica la password usando una chiave univoca.
+                $stmt->close();
+                header('Location: ./AdminPanel.php');
+
+            } else {
+                // Password incorretta.
+                echo "error2";
+            }
+
+        } else {
+            //Registrazione fallita
+            //header('Location: ./CustomerLogin.php');
+            echo "errore";
+        }
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+?>
