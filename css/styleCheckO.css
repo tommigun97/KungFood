@@ -1,0 +1,10 @@
+@media only screen and (max-width: 900px) {
+
+  body{
+    display: block;
+  }
+  #putOnCenter{
+    margin-left: 30%;
+  }
+
+}
